@@ -14,7 +14,7 @@ from telethon.tl.functions.messages import AddChatUserRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.account import UpdateProfileRequest
-from resources.sanskar import autobot
+from resources.sanskar import autobot,autopilot,customize
 from beastx.utils import load_module, start_assistant
 import asyncio
 from telethon.tl.functions.channels import InviteToChannelRequest
@@ -120,6 +120,8 @@ async def a():
                                     import_module(f"beastx.modules.{cr}")
                                     la += 1
                                     sed.info(f" loaded {la}/{f} modules")  
+beast.run_in_loop(autopilot())
+beast.run_in_loop(customize())
 
 path = "beastx/modules/*.py"
 files = glob.glob(path)
