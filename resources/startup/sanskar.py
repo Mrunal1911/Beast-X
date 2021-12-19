@@ -156,9 +156,9 @@ async def autopilot():
     chat = r.chats[0]
     chat_id = chat.id
     if not str(chat_id).startswith("-100"):
-        heroku_var['PRIVATE_GROUP_ID'] = "-100" + str(chat_id))
+        heroku_var['PRIVATE_GROUP_ID'] = "-100" + str(chat_id)
     else:
-        heroku_var['PRIVATE_GROUP_ID'] = str(chat_id))
+        heroku_var['PRIVATE_GROUP_ID'] = str(chat_id)
     rights = ChatAdminRights(
         add_admins=True,
         invite_users=True,
