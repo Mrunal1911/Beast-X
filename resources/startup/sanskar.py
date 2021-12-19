@@ -51,7 +51,7 @@ async def autobot():
         await beast.start()
         print("MAKING A TELEGRAM BOT FOR YOU AT @BotFather, Kindly Wait")
     who = beast.get_me
-    name = who.first_name + "'s Assistant Bot"
+    name = who.username + "'s Assistant Bot"
     if who.username:
         username = who.username + "_bot"
     else:
