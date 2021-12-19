@@ -14,16 +14,17 @@ from telethon.tl.functions.messages import AddChatUserRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.account import UpdateProfileRequest
-from beastx.function.autopilot import autopilot
+from resources.sanskar import autobot
 from beastx.utils import load_module, start_assistant
 import asyncio
 from telethon.tl.functions.channels import InviteToChannelRequest
-from . import bot,sedmrunal
+from . import bot
 bot = beast
 #rom . import semxx,semxxx
 #####################################
 plugin_channel = "@BeastX_Plugins" 
 #####################################
+beast.run_in_loop(autopilot())
 
 sur = Config.PRIVATE_GROUP_ID
 
@@ -43,24 +44,25 @@ async def add_bot(bot_token):
     bot.me = await bot.get_me()
     bot.uid = telethon.utils.get_peer_id(bot.me)
    
-    om = await beast.get_me()
+    #om = await beast.get_me()
 
-    mm = await sedmrunal.get_me()
-    try:
-        MSG = f"""
+    #mm = await sedmrunal.get_me()
+    #try:
+        #MSG = f"""
 
-✨𝔹𝕖𝕒𝕤𝕥 ℍ𝕒𝕤 𝔹𝕖𝕖𝕟 𝔻𝕖𝕡𝕝𝕠𝕪𝕖𝕕!
+#✨𝔹𝕖𝕒𝕤𝕥 ℍ𝕒𝕤 𝔹𝕖𝕖𝕟 𝔻𝕖𝕡𝕝𝕠𝕪𝕖𝕕!
 
- ---------------------
-┏━━━━━━━━━━━━━━━━━
-┣•Assistant➠ @{mm.username}
-┣•User➠ @{om.username}
-┣•Version➠ {VR}
-┗━━━━━━━━━━━━━━━━━
+ #---------------------
+#┏━━━━━━━━━━━━━━━━━
+#┣•Assistant➠ @{mm.username}
+#┣•User➠ @{om.username}
+#┣•Version➠ {VR}
+#┗━━━━━━━━━━━━━━━━━
 
-Do `.ping `or` /alive` for check userbot working
+#Do `.ping `or` /alive` for check userbot working
 
-"""
+#"""
+'''
         await sedmrunal.send_message(sur, MSG,
                                  
                                   buttons=[
@@ -75,7 +77,7 @@ Do `.ping `or` /alive` for check userbot working
         sed.info("---------------------------------------")
         sed.info("Bruh you forgot add assistant in log group")
         sed.info("---------------------------------------")
-        
+        '''
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
