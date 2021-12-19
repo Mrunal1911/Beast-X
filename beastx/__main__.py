@@ -24,7 +24,7 @@ bot = beast
 #####################################
 plugin_channel = "@BeastX_Plugins" 
 #####################################
-beast.loop.run_until_complete(autobot())
+bot.loop.run_until_complete(autobot())
 sur = Config.PRIVATE_GROUP_ID
 
 UL = Config.TG_BOT_USER_NAME_BF_HER
@@ -119,9 +119,9 @@ async def a():
                                     import_module(f"beastx.modules.{cr}")
                                     la += 1
                                     sed.info(f" loaded {la}/{f} modules")  
-beast.loop.run_until_complete(autopilot())
+bot.loop.run_until_complete(autopilot())
 
-beast.loop.run_until_complete(customize())
+bot.loop.run_until_complete(customize())
 
 path = "beastx/modules/*.py"
 files = glob.glob(path)
