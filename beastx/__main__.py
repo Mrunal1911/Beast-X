@@ -14,7 +14,7 @@ from telethon.tl.functions.messages import AddChatUserRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.account import UpdateProfileRequest
-from resources.sanskar import autobot,autopilot,customize
+from resources.startup.sanskar import autobot,autopilot,customize
 from beastx.utils import load_module, start_assistant
 import asyncio
 from telethon.tl.functions.channels import InviteToChannelRequest
