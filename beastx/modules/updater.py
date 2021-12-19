@@ -15,7 +15,7 @@ from . import *
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME
 HEROKU_API_KEY = Var.HEROKU_API_KEY
 UPSTREAM_REPO_BRANCH = "main"
-UPSTREAM_REPO_URL = "https://github.com/msy1717/Beast-X"
+UPSTREAM_REPO_URL = "https://github.com/Mrunal1911/Beast-X"
 
 requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt"
