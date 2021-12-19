@@ -48,7 +48,6 @@ async def autobot():
     if Var.TG_BOT_TOKEN_BF_HER is not None:
         print("BOT_TOKEN Found")
     else:
-        await beast.start()
         print("MAKING A TELEGRAM BOT FOR YOU AT @BotFather, Kindly Wait")
     who = await beast.get_me()
     uname = who.username
