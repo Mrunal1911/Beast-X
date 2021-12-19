@@ -123,3 +123,113 @@ async def autobot():
         )
 
         exit(1)
+async def autopilot():
+    from beastx import tgbot,beast
+
+    if Var.PRIVATE_GROUP_ID and str(Var.PRIVATE_GROUP_ID).startswith("-100"):
+        try:
+            await beast.get_entity(int(Var.PRIVATE_GROUP_ID))
+            return
+        except BaseException as er:
+            LOGS.error(er)
+            del heroku_var['PRIVATE_GROUP_ID']
+    print("Creating a Log Channel for You!")
+    try:
+        r = await beast(
+            CreateChannelRequest(
+                title="My BeastX Logs",
+                about="My BeastX Log Group\n\n Join @BeastX_Userbot",
+                megagroup=True,
+            ),
+        )
+    except ChannelsTooMuchError:
+        print(
+            "You Are in Too Many Channels & Groups , Leave some And Restart The Bot"
+        )
+        exit(1)
+    except BaseException as er:
+        print(er)
+        print(
+            "Something Went Wrong , Create A Group and set its id on config var LOG_CHANNEL."
+        )
+        exit(1)
+    chat = r.chats[0]
+    chat_id = chat.id
+    if not str(chat_id).startswith("-100"):
+        heroku_var['PRIVATE_GROUP_ID'] = "-100" + str(chat_id))
+    else:
+        heroku_var['PRIVATE_GROUP_ID'] = str(chat_id))
+    rights = ChatAdminRights(
+        add_admins=True,
+        invite_users=True,
+        change_info=True,
+        ban_users=True,
+        delete_messages=True,
+        pin_messages=True,
+        anonymous=False,
+        manage_call=True,
+    )
+    await beast(EditAdminRequest(chat_id, tgbot.me.username, rights, "Assistant"))
+    photo = await download_file(
+        "https://telegra.ph/file/4a1e0ee716f805cf66777.jpg", "channelphoto.jpg"
+    )
+    ll = await beast.upload_file(photo)
+    await beast(EditPhotoRequest(chat_id, InputChatUploadedPhoto(ll)))
+    os.remove(photo)
+
+
+# customize assistant
+
+
+async def customize():
+    from beastx import tgbot,beast
+
+    try:
+        chat_id = Var.PRIVATE_GROUP_ID
+        if tgbot.me.photo:
+            return
+        print("Customising Ur Assistant Bot in @BOTFATHER")
+        UL = f"@{tgbot.me.username}"
+        if (beast.me.username) is None:
+            sir = beast.me.first_name
+        else:
+            sir = f"@{beast.me.username}"
+        await beast.send_message(
+            chat_id, "Auto Customisation Started on @botfather"
+        )
+        await asyncio.sleep(1)
+        await beast.send_message("botfather", "/cancel")
+        await asyncio.sleep(1)
+        await beast.send_message("botfather", "/start")
+        await asyncio.sleep(1)
+        await beast.send_message("botfather", "/setuserpic")
+        await asyncio.sleep(1)
+        await beast.send_message("botfather", UL)
+        await asyncio.sleep(1)
+        await beast.send_file(
+            "botfather", "resources/beastxthumb.jpg"
+        )
+        await asyncio.sleep(2)
+        await beast.send_message("botfather", "/setabouttext")
+        await asyncio.sleep(1)
+        await beast.send_message("botfather", UL)
+        await asyncio.sleep(1)
+        await beast.send_message(
+            "botfather", f"✨ Hello ✨!! I'm Assistant Bot of {sir}"
+        )
+        await asyncio.sleep(2)
+        await beast.send_message("botfather", "/setdescription")
+        await asyncio.sleep(1)
+        await beast.send_message("botfather", UL)
+        await asyncio.sleep(1)
+        await beast.send_message(
+            "botfather",
+            f"✨ PowerFul BeastX Assistant Bot ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @TeamBeastX ✨",
+        )
+        await asyncio.sleep(2)
+        await beast.send_message(
+            chat_id, "**Auto Customisation** Done at @BotFather"
+        )
+        print("Customisation Done")
+    except Exception as e:
+        print.exception(e)
