@@ -50,7 +50,7 @@ async def autobot():
     else:
         await beast.start()
         print("MAKING A TELEGRAM BOT FOR YOU AT @BotFather, Kindly Wait")
-    who = beast.me
+    who = beast.get_me
     name = who.first_name + "'s Assistant Bot"
     if who.username:
         username = who.username + "_bot"
@@ -130,7 +130,7 @@ async def autopilot():
             await beast.get_entity(int(Var.PRIVATE_GROUP_ID))
             return
         except BaseException as er:
-            LOGS.error(er)
+            print(er)
             del heroku_var['PRIVATE_GROUP_ID']
     print("Creating a Log Channel for You!")
     try:
