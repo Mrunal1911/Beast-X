@@ -20,11 +20,24 @@ import asyncio
 from telethon.tl.functions.channels import InviteToChannelRequest
 from . import bot
 bot = beast
+sed = logging.getLogger("beastx")
+
 #rom . import semxx,semxxx
 #####################################
 plugin_channel = "@BeastX_Plugins" 
 #####################################
-bot.loop.run_until_complete(autobot())
+if Var.TG_BOT_TOKEN_BF_HER is None:
+    try:
+        print("BOT_TOKEN not Found")
+        bot.loop.run_until_complete(autobot())
+    except BaseException as er:
+        print(er)
+else:
+    pass
+
+
+
+
 sur = Config.PRIVATE_GROUP_ID
 
 UL = Config.TG_BOT_USER_NAME_BF_HER
