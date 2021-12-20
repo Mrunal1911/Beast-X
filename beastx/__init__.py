@@ -32,6 +32,9 @@ else:
     bot = TelegramClient(session_name, Var.APP_ID, Var.API_HASH)
 
 beast = bot
+token = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
+
+tclient = TelegramClient('tclient', Var.APP_ID, Var.API_HASH).start(bot_token=token)
 from .Configs import Config
 
 Lastupdate = time.time()
