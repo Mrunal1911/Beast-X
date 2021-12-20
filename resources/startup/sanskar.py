@@ -187,8 +187,6 @@ async def customize():
 
     try:
         chat_id = Var.PRIVATE_GROUP_ID
-        if tclient .me.photo:
-            return
         print("Customising Ur Assistant Bot in @BOTFATHER")
         UL = f"@{tclient .me.username}"
         if (beast.me.username) is None:
