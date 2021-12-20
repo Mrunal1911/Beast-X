@@ -126,14 +126,6 @@ async def autobot():
 
 async def autopilot():
     from beastx import tclient,beast
-
-    if Var.PRIVATE_GROUP_ID and str(Var.PRIVATE_GROUP_ID).startswith("-100"):
-        try:
-            await beast.get_entity(int(Var.PRIVATE_GROUP_ID))
-            return
-        except BaseException as er:
-            print(er)
-            del heroku_var['PRIVATE_GROUP_ID']
     print("Creating a Log Channel for You!")
     try:
         r = await beast(
@@ -157,9 +149,9 @@ async def autopilot():
     chat = r.chats[0]
     chat_id = chat.id
     if not str(chat_id).startswith("-100"):
-        heroku_var['PRIVATE_GROUP_ID'] = "-100" + str(chat_id)
+        heroku_var['PRIVATE_GROUP_ID'] = "-100" + str(chat_id))
     else:
-        heroku_var['PRIVATE_GROUP_ID'] = str(chat_id)
+        heroku_var['PRIVATE_GROUP_ID'] = str(chat_id))
     rights = ChatAdminRights(
         add_admins=True,
         invite_users=True,
