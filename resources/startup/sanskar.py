@@ -125,7 +125,7 @@ async def autobot():
 
 
 async def autopilot():
-    from beastx import tgbot,beast
+    from beastx import bot.tgbot,beast
 
     if Var.PRIVATE_GROUP_ID and str(Var.PRIVATE_GROUP_ID).startswith("-100"):
         try:
@@ -157,9 +157,9 @@ async def autopilot():
     chat = r.chats[0]
     chat_id = chat.id
     if not str(chat_id).startswith("-100"):
-        heroku_var['PRIVATE_GROUP_ID'] = "-100" + str(chat_id)
+        heroku_var['PRIVATE_GROUP_ID'] = "-100" + str(chat_id))
     else:
-        heroku_var['PRIVATE_GROUP_ID'] = str(chat_id)
+        heroku_var['PRIVATE_GROUP_ID'] = str(chat_id))
     rights = ChatAdminRights(
         add_admins=True,
         invite_users=True,
@@ -170,7 +170,7 @@ async def autopilot():
         anonymous=False,
         manage_call=True,
     )
-    await beast(EditAdminRequest(chat_id, tgbot.me.username, rights, "Assistant"))
+    await beast(EditAdminRequest(chat_id, bot.tgbot.me.username, rights, "Assistant"))
     photo = await download_file(
         "https://telegra.ph/file/4a1e0ee716f805cf66777.jpg", "channelphoto.jpg"
     )
@@ -183,14 +183,14 @@ async def autopilot():
 
 
 async def customize():
-    from beastx import tgbot,beast
+    from beastx import bot.tgbot,beast
 
     try:
         chat_id = Var.PRIVATE_GROUP_ID
-        if tgbot.me.photo:
+        if bot.tgbot.me.photo:
             return
         print("Customising Ur Assistant Bot in @BOTFATHER")
-        UL = f"@{tgbot.me.username}"
+        UL = f"@{bot.tgbot.me.username}"
         if (beast.me.username) is None:
             sir = beast.me.first_name
         else:
@@ -234,3 +234,4 @@ async def customize():
         print("Customisation Done")
     except Exception as e:
         print.exception(e)
+       
