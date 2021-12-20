@@ -187,12 +187,14 @@ async def customize():
 
     try:
         chat_id = Var.PRIVATE_GROUP_ID
+    
         print("Customising Ur Assistant Bot in @BOTFATHER")
-        UL = f"@{tclient .me.username}"
-        if (beast.me.username) is None:
+        how = await tclient.get_me()
+        UL = f"@{how.username}"
+        if (who.username) is None:
             sir = beast.me.first_name
         else:
-            sir = f"@{beast.me.username}"
+            sir = f"@{who.username}"
         await beast.send_message(
             chat_id, "Auto Customisation Started on @botfather"
         )
