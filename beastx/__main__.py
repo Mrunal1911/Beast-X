@@ -103,7 +103,6 @@ try:
         bot.start()
 except BaseException as er:
     sed.info(er)
-tgbot = bot.tgbot
     
 async def a():
 
