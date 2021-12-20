@@ -79,7 +79,7 @@ async def autobot():
         await asyncio.sleep(1)
         isdone = (await beast.get_messages(bf, limit=1))[0].text
         if not isdone.startswith("Good."):
-            LOGS.info(
+            print(
                 "Please make a Bot from @BotFather and add it's token in BOT_TOKEN, as an env var and restart me."
             )
             exit(1)
