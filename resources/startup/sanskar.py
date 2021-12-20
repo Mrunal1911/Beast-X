@@ -83,31 +83,29 @@ async def autobot():
                 "Please make a Bot from @BotFather and add it's token in BOT_TOKEN, as an env var and restart me."
             )
                 exit(1)
-        
-           isdone = (await beast.get_messages(bf, limit=1))[0].text
-           await beast.send_read_acknowledge("botfather")
-           if isdone.startswith("Sorry,"):
-               ran = randint(1, 100)
-               username = "Beast_" + (str(who.id))[6:] + str(ran) + "_bot"
-               await beast.send_message(bf, username)
-               await asyncio.sleep(1)
-               nowdone = (await beast.get_messages(bf, limit=1))[0].text
+                isdone = (await beast.get_messages(bf, limit=1))[0].text
+                await beast.send_read_acknowledge("botfather")
+                if isdone.startswith("Sorry,"):
+                    ran = randint(1, 100)
+                    username = "Beast_" + (str(who.id))[6:] + str(ran) + "_bot"
+                    await beast.send_message(bf, username)
+                    await asyncio.sleep(1)
+                    nowdone = (await beast.get_messages(bf, limit=1))[0].text
 
-               if nowdone.startswith("Done!"):
-                   token = nowdone.split("`")[1]
-                   heroku_var['TG_BOT_TOKEN_BF_HER'] = token
-                   await beast.send_message(bf, "/setinline")
-                   await asyncio.sleep(1)
-                   await beast.send_message(bf, f"@{username}")
-                   await asyncio.sleep(1)
-                   await beast.send_message(bf, "Search")
-                   print(f"DONE YOUR TELEGRAM BOT IS CREATED SUCCESSFULLY @{username}")
-               else:
-                   print(
-                "Please Delete Some Of your Telegram bots at @Botfather or Set Var BOT_TOKEN with token of a bot"
-            )
+                    if nowdone.startswith("Done!"):
+                        token = nowdone.split("`")[1]
+                        heroku_var['TG_BOT_TOKEN_BF_HER'] = token
+                        await beast.send_message(bf, "/setinline")
+                        await asyncio.sleep(1)
+                        await beast.send_message(bf, f"@{username}")
+                        await asyncio.sleep(1)
+                        await beast.send_message(bf, "Search")
+                        print(f"DONE YOUR TELEGRAM BOT IS CREATED SUCCESSFULLY @{username}")
+                    else:
+                        print(
+                "Please Delete Some Of your Telegram bots at @Botfather or Set Var BOT_TOKEN with token of a bot")
 
-                   exit(1)
+                        exit(1)
         elif isdone.startswith("Done!"):
                token = isdone.split("`")[1]
                heroku_var['TG_BOT_TOKEN_BF_HER'] = token
@@ -123,6 +121,7 @@ async def autobot():
         )
 
               exit(1)
+
 
 
 async def autopilot():
