@@ -78,9 +78,8 @@ async def add_bot(bot_token):
         sed.info("---------------------------------------")
         '''
 
-if len(argv) not in (1, 3, 4):
-    bot.disconnect()
-else:
+
+try:
     bot.tgbot = None
     if Var.TG_BOT_USER_NAME_BF_HER is not None:
         bot.tgbot = TelegramClient(
@@ -89,7 +88,10 @@ else:
         bot.loop.run_until_complete(add_bot(Var.TG_BOT_USER_NAME_BF_HER))
     else:
         bot.start()
-        
+except BaseException as er:
+    sed.info(er)
+
+    
 async def a():
 
   sed.info("Connecting...") ; 
