@@ -233,5 +233,5 @@ async def customize():
         )
         print("Customisation Done")
     except Exception as e:
-        print.exception(e)
+        print(e)
        
