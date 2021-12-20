@@ -134,9 +134,8 @@ async def a():
                                     la += 1
                                     sed.info(f" loaded {la}/{f} modules")  
 
-
-
-if not Var.PRIVATE_GROUP_ID.startswith("-100"):
+logger_group = Var.PRIVATE_GROUP_ID
+if not str(logger_group).startswith("-100"):
     try:
         bot.loop.run_until_complete(autopilot())
     except BaseException as er:
