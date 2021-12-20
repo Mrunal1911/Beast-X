@@ -5,6 +5,8 @@ from random import randint
 from urllib.request import urlretrieve
 import heroku3
 from pytz import timezone
+from telethon import TelegramClient
+
 from telethon.errors.rpcerrorlist import ChannelsTooMuchError
 from telethon.tl.custom import Button
 from telethon.tl.functions.channels import (
@@ -122,10 +124,8 @@ async def autobot():
         exit(1)
 
 
-
-
 async def autopilot():
-    from beastx import bot.tgbot,beast
+    from beastx import tclient,beast
 
     if Var.PRIVATE_GROUP_ID and str(Var.PRIVATE_GROUP_ID).startswith("-100"):
         try:
@@ -170,7 +170,7 @@ async def autopilot():
         anonymous=False,
         manage_call=True,
     )
-    await beast(EditAdminRequest(chat_id, bot.tgbot.me.username, rights, "Assistant"))
+    await beast(EditAdminRequest(chat_id, tclient .me.username, rights, "Assistant"))
     photo = await download_file(
         "https://telegra.ph/file/4a1e0ee716f805cf66777.jpg", "channelphoto.jpg"
     )
@@ -183,14 +183,14 @@ async def autopilot():
 
 
 async def customize():
-    from beastx import bot.tgbot,beast
+    from beastx import tclient ,beast
 
     try:
         chat_id = Var.PRIVATE_GROUP_ID
-        if bot.tgbot.me.photo:
+        if tclient .me.photo:
             return
         print("Customising Ur Assistant Bot in @BOTFATHER")
-        UL = f"@{bot.tgbot.me.username}"
+        UL = f"@{tclient .me.username}"
         if (beast.me.username) is None:
             sir = beast.me.first_name
         else:
