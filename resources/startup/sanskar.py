@@ -49,6 +49,7 @@ async def autobot():
         print("BOT_TOKEN Found")
     else:
         print("MAKING A TELEGRAM BOT FOR YOU AT @BotFather, Kindly Wait")
+    await beast.start()    
     who = await beast.get_me()
     uname = who.username
     name = uname + "'s Assistant Bot"
