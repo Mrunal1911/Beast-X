@@ -147,6 +147,16 @@ else:
     pass
 
 
+if not Var.PRIVATE_GROUP_ID.startswith("-100"):
+    try:
+        bot.loop.run_until_complete(autopilot())
+    except BaseException as er:
+        print(er)        
+else:
+    pass
+    
+
+
 path = "beastx/modules/*.py"
 files = glob.glob(path)
 for name in files:
@@ -169,11 +179,7 @@ if Config.ENABLE_ASSISTANTBOT == "ENABLE":
     sed.info("---------------------------------------")
     sed.info("------------@BeastX_Userbot------------")
     sed.info("---------------------------------------")
-  
-        
-        
-        
-           
+         
 else:
     sed.info("beastx Has Been Installed Sucessfully !")
     sed.info("Hope you will enjoy")
