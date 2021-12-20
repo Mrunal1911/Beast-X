@@ -133,9 +133,19 @@ async def a():
                                     import_module(f"beastx.modules.{cr}")
                                     la += 1
                                     sed.info(f" loaded {la}/{f} modules")  
-bot.loop.run_until_complete(autopilot())
+if Var.PRIVATE_GROUP_IDis None:
+    try:
+        print("log Group not found wait i can do it")
+        bot.loop.run_until_complete(autopilot())
+        await asyncio.sleep(5)
+        bot.loop.run_until_complete(customize())
 
-bot.loop.run_until_complete(customize())
+
+    except BaseException as er:
+        print(er)
+else:
+    pass
+
 
 path = "beastx/modules/*.py"
 files = glob.glob(path)
