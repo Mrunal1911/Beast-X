@@ -123,7 +123,7 @@ async def a():
     sed.info("Telegram String Session Wrong or Expired Please Add new one ") ; quit(1)
 import glob
 async def a():
-            documentss = await bot.get_messages(chat, None , filter=InputMessagesFilterDocument)
+            documentss = await bot.get_messages(plugin_channel, None , filter=InputMessagesFilterDocument)
             total = int(documentss.total)
             total_doxx = range(0, total)
             await event.delete()
