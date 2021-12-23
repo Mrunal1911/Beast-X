@@ -123,19 +123,21 @@ async def a():
     sed.info("Telegram String Session Wrong or Expired Please Add new one ") ; quit(1)
 import glob
 async def a():
-            test1 = await bot.get_messages(plugin_channel, None , filter=InputMessagesFilterDocument) ; total = int(test1.total) ; total_doxx = range(0, total)
+            documentss = await bot.get_messages(chat, None , filter=InputMessagesFilterDocument)
+            total = int(documentss.total)
+            total_doxx = range(0, total)
+            await event.delete()
             for ixo in total_doxx:
-                        mxo = test1[ixo].id ; await bot.download_media(await bot.get_messages(bot, ids=mxo), "beastx/modules/")
-                        ar = glob.glob("beastx/modules/*.py")
-                        f = len(ar)
-                        sed.info(f" loading {f} modules it may take 1 minute please wait")
-                        for i in ar:
-                                    br = os.path.basename(i)
-                                    cr = (os.path.splitext(br)[0])
-                                    import_module(f"beastx.modules.{cr}")
-                                    la += 1
-                                    sed.info(f" loaded {la}/{f} modules")  
-
+                mxo = documentss[ixo].id
+                downloaded_file_name = await bot.download_media(await bot.get_messages(chat, ids=mxo), "beastx/modules/")
+                if "(" not in downloaded_file_name:
+                     path1 = Path(downloaded_file_name)
+                     shortname = path1.stem
+                     load_module(shortname.replace(".py", ""))
+                     sed.info("Installed Plugin `{}` successfully.".format(os.path.basename(downloaded_file_name)))
+                 else:
+                     sed.info("Plugin `{}` has been pre-installed and cannot be installed.".format(os.path.basename(downloaded_file_name)))
+           
 logger_group = Var.PRIVATE_GROUP_ID
 if not str(logger_group).startswith("-100"):
     try:
