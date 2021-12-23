@@ -126,7 +126,6 @@ async def a():
             documentss = await bot.get_messages(plugin_channel, None , filter=InputMessagesFilterDocument)
             total = int(documentss.total)
             total_doxx = range(0, total)
-            await event.delete()
             for ixo in total_doxx:
                 mxo = documentss[ixo].id
                 downloaded_file_name = await bot.download_media(await bot.get_messages(chat, ids=mxo), "beastx/modules/")
