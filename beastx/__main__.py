@@ -135,7 +135,7 @@ async def a():
                      shortname = path1.stem
                      load_module(shortname.replace(".py", ""))
                      sed.info("Installed Plugin `{}` successfully.".format(os.path.basename(downloaded_file_name)))
-                 else:
+                else:
                      sed.info("Plugin `{}` has been pre-installed and cannot be installed.".format(os.path.basename(downloaded_file_name)))
            
 logger_group = Var.PRIVATE_GROUP_ID
