@@ -143,7 +143,7 @@ if not str(logger_group).startswith("-100"):
 else:
     pass
     
-
+bot.loop.run_until_complete(a())
 
 path = "beastx/modules/*.py"
 files = glob.glob(path)
