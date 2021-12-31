@@ -38,11 +38,10 @@ else:
 
 botisnoob = Var.TG_BOT_USER_NAME_BF_HER
 devs_id = [657176088]
+lmao = event.sender.first_name
 USER_BOT_NO_WARN = (
-    "**Hello, This is My Master's PM Protection Service ⚠️**\n\n"
-    f"`My Master {DEFAULTUSER} is Busy Right Now !` \n"
-    "**I Request You To Choose A Reason You Have Came For** 👀 \n\n"
-    f"**{CUSTOM_MIDDLE_PMP}**"
+    f"**PMSecurity of {DEFAULTUSER} ⚠️**\n\n"
+    f"`Hi  {lmao}, I haven't approved you yet to personal message me, Don't spam my inbox.Just say the reason and wait until you get approved."
 )
 if Var.PRIVATE_GROUP_ID is not None:
 
