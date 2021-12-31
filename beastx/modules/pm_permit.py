@@ -41,7 +41,7 @@ devs_id = [657176088]
 lmao = event.sender.first_name
 USER_BOT_NO_WARN = (
     f"**PMSecurity of {DEFAULTUSER} ⚠️**\n\n"
-    f"`Hi  {lmao}, I haven't approved you yet to personal message me, Don't spam my inbox.Just say the reason and wait until you get approved."
+    f"`Hi there, I haven't approved you yet to personal message me, Don't spam my inbox.Just say the reason and wait until you get approved."
 )
 if Var.PRIVATE_GROUP_ID is not None:
 
